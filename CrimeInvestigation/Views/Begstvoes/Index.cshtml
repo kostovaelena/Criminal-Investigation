@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CrimeInvestigation.Models.Begstvo>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div class="eden">
+    <div class="media">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4" style=" background-color:rgba(3, 11, 85, 0.5); border:hidden">
+                <br />
+                <img alt="" class="resize-image center-block" id="image1" src="@item.Slika" style="height:300px;border-radius:10px  " width="300" />
+                <br />
+                <p class="text-center" style="font-size:25px"><b> @Html.DisplayFor(modelItem => item.Ime)  @Html.DisplayFor(modelItem => item.Prezime)</b></p>
+                <p> @Html.DisplayFor(modelItem => item.Datum)</p>
+                <h6>
+                    <input type='button' class="btn btn-success" value='Дознај повеќе' onclick='window.location = "@Url.Action("Details", "Begstvoes", new { id = @item.Ime })";' />
+                    <input type='button' class="btn btn-danger" value='Пријави информации' onclick='window.location = "@Url.Action("Edit", "Begstvoes", new { id = @item.Ime })";' />
+
+                    <hr />
+                    @if (User.IsInRole("Policaec"))
+                    {
+                        <input type='button' class="btn btn-warning" value='Избриши од листата' onclick='window.location = "@Url.Action("Delete", "Begstvoes", new { id = @item.Ime })";' />
+
+                    }
+
+                </h6>
+                <br />
+            </div>
+        }
+        @if (User.IsInRole("Policaec"))
+        {
+            <hr />
+        <p style="text-align:center">
+            @Html.ActionLink("Пријави затвореник во бегство", "Create", "Begstvoes", new { @class = "btn btn-danger" })
+        </p>
+        <br />
+        }
+
+
+    </div>
+
+
+
+</div>

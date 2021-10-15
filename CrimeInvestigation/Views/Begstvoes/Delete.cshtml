@@ -1,0 +1,40 @@
+﻿@model CrimeInvestigation.Models.Begstvo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<br />
+<br />
+<div class="eden">
+    <h2 style="text-align:center; color:red">Детали за лицето @ViewBag.Ime @ViewBag.Prezime</h2>
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Slika" style="height:330px" width="360" />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                Лицето @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) има  @Html.DisplayFor(model => model.Godini)
+                години. Исчезнало на @Html.DisplayFor(model => model.Datum) и последен пат е видено во  @Html.DisplayFor(model => model.Mesto).
+            </h3>
+
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Пронајден" style="font-size:25px" onclick="return confirm ('Дали е лицето пронајдено?');" class="btn btn-success" />
+
+        </div>
+        <br />
+    }
+</div>

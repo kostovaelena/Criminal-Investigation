@@ -1,0 +1,33 @@
+﻿@model CrimeInvestigation.Models.Begstvo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+<div class="eden">
+    <h2 style="text-align:center;color:red; background-color:rgba(3, 11, 85, 0.8);">Детали за личноста @ViewBag.Ime @ViewBag.Prezime</h2>
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Slika" style="height:330px" width="360" />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                Лицето @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) има  @Html.DisplayFor(model => model.Godini)
+                години. Исчезнало на @Html.DisplayFor(model => model.Datum) и последен пат е видено во  @Html.DisplayFor(model => model.Mesto).
+            </h3>
+            <br />
+            <div style="background-color:rgba(3, 11, 85, 0.8);">
+                <h3 style="text-align:center; color:red;">Доколку имате некакви информации, ве молиме пријавете  @Html.ActionLink("ТУКА", "Edit", new { id = @Model.Ime }) </h3>
+            </div>
+        </div>
+    </div>
+
+</div> 

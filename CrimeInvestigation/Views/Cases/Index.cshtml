@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CrimeInvestigation.Models.Case>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br/>
+<br />
+<br />
+<div class="eden" style="">
+    <table class="table" style="color:white" id="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Tip)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tip)
+                </td>
+
+                <td>
+
+                    <input type='button' class="btn btn-primary" value='Детали' onclick='window.location = "@Url.Action("Details", "Cases", new { id = @item.ID })";' />
+                    <input type='button' class="btn btn-warning" value='Додади детектив' onclick='window.location = "@Url.Action("AddPolicaecToCase", "Cases", new { id = @item.ID })";' />
+                    <input type='button' class="btn btn-danger" value='Додади осомничен' onclick='window.location = "@Url.Action("AddOsomnichenToCase", "Cases", new { id = @item.ID })";' />
+                    <input type='button' class="btn btn-success" value='Избриши го случајот' onclick='window.location = "@Url.Action("Delete", "Cases", new { id = @item.ID })";' />
+
+
+
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script>
+
+        $("#table").DataTable();
+
+    </script>
+
+}

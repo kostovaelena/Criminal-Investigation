@@ -1,0 +1,41 @@
+﻿@model CrimeInvestigation.Models.Ischeznat
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br />
+<br />
+<div class="eden">
+    <h2 style="text-align:center; color:red">Детали за лицето @ViewBag.Ime @ViewBag.Prezime</h2>
+
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Slika" style="height:330px" width="300" />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                Лицето @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) има  @Html.DisplayFor(model => model.Godini)
+                години и живее на улица  @Html.DisplayFor(model => model.Adresa) во  @Html.DisplayFor(model => model.Grad). Последен пат е видено на  @Html.DisplayFor(model => model.Datum)
+                во  @Html.DisplayFor(model => model.Vreme) часот кај  @Html.DisplayFor(model => model.Mesto). Надворешниот изглед бил ваков:  @Html.DisplayFor(model => model.Izgled) .
+            </h3>
+
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Пронајден" style="font-size:25px" onclick="return confirm ('Дали е лицето пронајдено?');" class="btn btn-success" />
+
+        </div>
+        <br />
+    }
+</div>

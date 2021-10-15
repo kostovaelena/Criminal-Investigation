@@ -1,0 +1,38 @@
+﻿@model CrimeInvestigation.Models.Osomnichen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+<br />
+<div class="eden">
+    <h3 style="text-align: center; color:red">Детали за личноста @ViewBag.Ime @ViewBag.Prezime</h3>
+    <div>
+
+        <div>
+
+            <hr />
+            <div class="heh">
+                <h1 style="text-align:center">
+                    <img alt="" id="image1" src="@Model.Slika" style="height:330px" width="350" />
+                </h1>
+                <br />
+
+
+                <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                    Осомничениот @Html.DisplayFor(model => model.Ime) @Html.DisplayFor(model => model.Prezime) со ID  @Html.DisplayFor(model => model.ID) има @Html.DisplayFor(model => model.Godini) години. Лицето
+                    е осомничено за @Html.DisplayFor(model => model.tipObvinenie). Неговиот надворешен изглед е ваков: @Html.DisplayFor(model => model.opisOsomnichen) .
+                </h3>
+                <br />
+
+            </div>
+        </div>
+
+    </div>
+    <p>
+
+        <input type='button' class="btn btn-primary" value='Назад' onclick='window.location = "@Url.Action("Index", "Cases")";' />
+    </p>
+</div>

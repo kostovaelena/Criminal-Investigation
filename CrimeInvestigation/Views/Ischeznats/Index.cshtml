@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CrimeInvestigation.Models.Ischeznat>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<div class="eden">
+    <h2 style="text-align:center"><b><i>Препораки што можат да помогнат во случаи на исчезнати лица</i></b></h2>
+    <p>
+        <ul>
+            <i>
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Доколку некое лице исчезне, контактирајте ги сите кои би можеле да го знаат местото на престој на исчезнатото лице.
+                <br />
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Соработувајте со полицијата, дајте ги сите информации за пријателите и роднините на исчезнатото лице, местата кои често ги посетува, здравствената состојба или начин на однесување во блиското минато
+                <br />
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Споделете ги карактеристичните размислувања на исчезнатото лице, неговите видувања за идни планови трагање по сторителите на казнени дела според службена должност, како и нивно доставување на надлежните тела
+                <br />
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Не сокривајте информации од полицијата, бидете достапни - Обезбедете фотографија и дозволете и на полицијата да ја сподели со јавноста.
+                <br />
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Обратете се во најблиската полициска станица, полицискиот службеник за прифат или инспекторот по потраги ќе ги земе сите податоци кои се потребни
+                <br />
+                <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />   Водете грижа за лицата кои имаат здравствени проблеми и страдаат од болести заради кои ја губат способноста за осознавање, не ги оставајте без придружба и надзор.
+                <br />
+
+            </i>
+        </ul>
+    </p>
+    <br />
+    <hr />
+    <p style="text-align:center">
+        @Html.ActionLink("Пријави исчезнато лице", "Create", "Ischeznats", new { @class = "btn btn-danger" })
+    </p>
+    <br />
+    <div></div>
+</div>
+
+
+<section class="part2">
+    <div class="container2">
+        <div class="row1">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4" style=" background-color:rgba(3, 11, 85, 0.65)">
+                    <img alt="" class="resize-image center-block" id="image1" src="@item.Slika" style="height:230px; border-radius:70px " width="200" />
+                    <p class="text-center"><b> @Html.DisplayFor(modelItem => item.Ime)  @Html.DisplayFor(modelItem => item.Prezime)</b></p>
+                    <p> @Html.DisplayFor(modelItem => item.Datum)</p>
+                    <h6>
+                        <input type='button' class="btn btn-primary" value='Дознај повеќе' onclick='window.location = "@Url.Action("Details", "Ischeznats", new { id = @item.ID })";' />
+                        <input type='button' class="btn btn-danger" value='Пријави информации' onclick='window.location = "@Url.Action("Edit", "Ischeznats", new { id = @item.ID })";' />
+                        @if (User.IsInRole("Policaec"))
+                        {
+                            <input type='button' class="btn btn-warning" value='Избриши од листата' onclick='window.location = "@Url.Action("Delete", "Ischeznats", new { id = @item.ID })";' />
+                        }
+                        <hr/>
+                    </h6>
+                </div>
+            }
+        </div>
+    </div>
+</section>

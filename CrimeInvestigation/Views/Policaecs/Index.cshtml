@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CrimeInvestigation.Models.Policaec>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+
+
+<section class="part2">
+    <div class="container2">
+        <div class="row1">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4" style=" border:none; background-color:rgba(3, 11, 85, 0.65)">
+                    <img alt="" class="resize-image center-block" id="image1" src="@item.urlslika" style="height:300px; border-radius:10px " width="250" />
+                    <br />
+                    <h4 class="text-center"><b> @Html.DisplayFor(modelItem => item.Ime)  @Html.DisplayFor(modelItem => item.Prezime)</b></h4>
+                    <h6>
+                        <input type='button' class="btn btn-primary" value='Дознај повеќе' onclick='window.location = "@Url.Action("Details", "Policaecs", new { id = @item.policaecId })";' />
+                        
+                        @if (User.IsInRole("Policaec"))
+                        {
+                            <input type='button' class="btn btn-danger" value='Избриши од листата' onclick='window.location = "@Url.Action("Delete", "Policaecs", new { id = @item.policaecId })";' />
+                        }
+                        <hr />
+                    </h6>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+@section Scripts{
+
+    <script>
+
+        $("#table").DataTable();
+
+    </script>
+
+}
+
+
+
+

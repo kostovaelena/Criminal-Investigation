@@ -1,0 +1,24 @@
+﻿@model CrimeInvestigation.Models.AddToCase
+
+<br/>
+<br/>
+<br/>>
+<div class="eden" style="color:white">
+
+    <h2 style="text-align:center; color:red">Додади осомничен во случајот @ViewBag.ID</h2>
+    <hr />
+    <br />
+    @using (Html.BeginForm("AddOsomnichenToCase", "Cases"))
+    {
+        <div class="form-group" style="margin-left:380px">
+            @Html.DropDownListFor(m => m.osomnichenId, new SelectList(Model.osomnicheni, "ID", "Ime"), new { @class = "form-control" })
+        </div>
+        <br />
+        <br />
+        <br />
+        @Html.HiddenFor(m => m.caseId)
+        <input type="submit" value="Додади" style=" margin-left: 450px;font-size:30px" class="btn btn-success" />
+    }
+    <br />
+
+</div>

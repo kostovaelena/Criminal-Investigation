@@ -1,0 +1,32 @@
+﻿@model CrimeInvestigation.Models.Ischeznat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+<div class="eden">
+    <h2 style="text-align:center;color:red; background-color:rgba(3, 11, 85, 0.8);">Детали за личноста @ViewBag.Ime @ViewBag.Prezime</h2>
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.Slika" style="height:330px" width="300" />
+            </h1>
+            <br />
+
+
+            <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                Лицето @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) има  @Html.DisplayFor(model => model.Godini)
+                години и живее на улица  @Html.DisplayFor(model => model.Adresa) во  @Html.DisplayFor(model => model.Grad). Последен пат е видено на  @Html.DisplayFor(model => model.Datum)
+                во  @Html.DisplayFor(model => model.Vreme) часот кај  @Html.DisplayFor(model => model.Mesto). Надворешниот изглед бил ваков:  @Html.DisplayFor(model => model.Izgled) .
+            </h3>
+            <br />
+            <h3 style="text-align:center; color:red;">Доколку имате некакви информации, ве молиме пријавете  @Html.ActionLink("ТУКА", "Edit", new { id = @Model.ID }) </h3>
+        </div>
+    </div>
+
+</div> 

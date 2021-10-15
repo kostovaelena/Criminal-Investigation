@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<br />
+<br />
+
+<div class="eden">
+
+    <h2 style="text-align:center"><b><i>Контакт</i></b></h2>
+    <br />
+
+    <div class="eden">
+
+        <br/>
+
+        <div>
+            <h5 style=""><strong>Адреса</strong></h5>
+        </div>
+        <div style="float:left; width: 50px; height:40px;"><img src="https://www.dzlp.mk/sites/default/files/pictures/adresa.png" style="-webkit-user-select:none; width:32px; height:32px;"></div>
+        <div>
+            <strong>  ул. "Илинденска" бр.8  </strong>
+        </div>
+        <div><strong>1000 Скопје</strong></div>
+
+        <br />
+
+
+
+
+        <div>
+          <h5 style=""><strong>Email</strong></h5> 
+        </div>
+        <div style="float:left; width: 50px; height:40px;"><img src="https://www.dzlp.mk/sites/default/files/pictures/email.png" style="-webkit-user-select:none; width:32px; height:32px;"></div>
+        <div>
+            <strong>
+                team@gmail.com
+            </strong>
+        </div>
+
+
+        <br/>
+
+    <div>
+            <h5 style=""><strong>Телефон за контакт:</strong></h5>
+    </div>
+    <div style="float:left; width: 50px; height:40px;"><img src="https://www.dzlp.mk/sites/default/files/pictures/telefon.png" style="-webkit-user-select:none; width:32px"></div>
+    <div>
+        <strong>
+             192
+        </strong>
+    </div>
+
+
+
+
+
+
+        <br />
+        <p>
+            <input type='button' class="btn btn-primary" value='Назад' onclick='window.location = "@Url.Action("Index", "Home")";' />
+        </p>
+
+
+        <html>
+
+        <head>
+
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+        </head>
+
+        <body>
+            <div>
+                <style>
+
+                    #map {
+                        width: 1000px;
+                        height: 500px;
+                    }
+                </style>
+            </div>
+            <div id="map"></div>
+            <script>
+                var map = L.map('map').setView([42.006315823649764, 21.418913376432336], 12);
+
+                L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=G0ORumnaC3VPqjNCyHWK', { attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>', }).addTo(map);
+
+                var marker1 = L.marker([41.98845539347347, 21.4305863498182]).addTo(map);
+                var marker2 = L.marker([41.97773672940127, 21.484488021041187]).addTo(map);
+                var marker3 = L.marker([42.006315823649764, 21.418913376432336]).addTo(map);
+                var marker4 = L.marker([41.989220943268606, 21.48277140730797]).addTo(map);
+                var marker5 = L.marker([42.01454246360584, 21.391622693356332]).addTo(map);
+                var marker6 = L.marker([42.00555047945167, 21.476248275121744]).addTo(map);
+                var marker7 = L.marker([41.99738623513047, 21.41410685797933]).addTo(map);
+                var marker8 = L.marker([42.00778270762783, 21.444061767623946]).addTo(map);
+                var marker9 = L.marker([42.04064073286618, 21.4565271509718]).addTo(map);
+
+
+            </script>
+
+        </body>
+    </html>
+    </div>
+</div>

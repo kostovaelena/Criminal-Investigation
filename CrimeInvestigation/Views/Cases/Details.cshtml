@@ -1,0 +1,69 @@
+﻿@model CrimeInvestigation.Models.Case
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br />
+
+<div class="eden">
+
+    <h3 style="text-align:center;color:red; background-color:rgba(3, 11, 85,0.8); font-size:35px"><i>Детали за случајот: @ViewBag.ID</i></h3>
+    <div>
+
+
+        <div>
+
+            <hr />
+            <div class="heh">
+
+                <br />
+
+
+                <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                    Лицето @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) пријави случај @Html.DisplayFor(model => model.Tip),
+                    коe се случилo во  @Html.DisplayFor(model => model.Vreme) часот на локацијата: @Html.DisplayFor(model => model.Lokacija).
+                    Описот на случката гласи вака: @Html.DisplayFor(model => model.Opis).
+                </h3>
+
+            </div>
+        </div>
+        <br />
+       
+    </div>
+
+    <br />
+
+    <h2 style="text-align:center;color:white; background-color:rgba(3, 11, 85,0.8); font-size:35px">Листа на осомничени луѓе за случајот @ViewBag.ID</h2>
+    
+    <ul style=" margin-left: 250px;font-size:30px">
+        @foreach (CrimeInvestigation.Models.Osomnichen l in Model.osomnicheni)
+        {
+
+            <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />
+            <input type='button' class="btn btn-default" value='@l.Ime' onclick='window.location = "@Url.Action("Details", "Osomnichens", new { id = @l.ID })";' />
+            
+
+        }
+    </ul>
+    <hr/>
+    <br />
+
+    <h2 style="text-align:center;color:white; background-color:rgba(3, 11, 85,0.8); font-size:35px">Листа на детективи за случајот @ViewBag.ID</h2>
+
+    <ul style=" margin-left: 250px;font-size:30px">
+        @foreach (CrimeInvestigation.Models.Policaec p in Model.policajci)
+        {
+            <img style="width:40px; height:35px; border-radius:50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Check_icon.svg/1200px-Check_icon.svg.png" />
+           <span></span>
+            <input type='button' class="btn btn-default" value='@p.Ime' onclick='window.location = "@Url.Action("Details", "Policaecs", new { id = @p.policaecId })";' />
+            
+
+
+        }
+    </ul>
+    </hr>
+
+
+</div>

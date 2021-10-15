@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CrimeInvestigation.Models.Osomnichen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<div class="eden">
+
+
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Slika)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prezime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Godini)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.opisOsomnichen)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.tipObvinenie)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Slika" style="max-width:200px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Godini)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.opisOsomnichen)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tipObvinenie)
+                    </td>
+
+                    <td>
+
+                        @Html.ActionLink("Детали", "Details", new { id = item.ID })
+                        @Html.ActionLink("Избриши", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+
+    <script>
+
+        $("#table").DataTable();
+
+    </script>
+
+}
+

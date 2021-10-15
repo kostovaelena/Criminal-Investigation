@@ -1,0 +1,38 @@
+﻿@model CrimeInvestigation.Models.Policaec
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br />
+<br/>
+<br/>
+
+<div class="eden">
+
+
+
+    <h2 style="text-align:center;color:red; background-color:rgba(3, 11, 85, 0.8);">Детали за полицаецот @ViewBag.Ime @ViewBag.Prezime</h2>
+
+    <div>
+
+        <hr />
+        <div class="heh">
+            <h1 style="text-align:center">
+                <img alt="" id="image1" src="@Model.urlslika" style="height:330px" width="290" />
+            </h1>
+            <br />
+
+            <h3 style="text-align:center; border:groove; background-color: rgba(3, 11, 85, 0.8);">
+                Полицаецот @Html.DisplayFor(model => model.Ime)  @Html.DisplayFor(model => model.Prezime) со ID: @Html.DisplayFor(model => model.policaecId)
+                има  @Html.DisplayFor(model => model.iskustvo) години искуство.
+
+            </h3>
+
+        </div>
+    </div>
+    <p>
+        <input type='button' class="btn btn-primary" value='Назад' onclick='window.location = "@Url.Action("Index", "Policaecs")";' />
+    </p>
+</div>
+
