@@ -8,7 +8,7 @@
 
 ### If you are logged in as an administrator, you can: 
 * Do all of the above except report a new case. Instead, you can view details of cases already reported
-* Add a suspect or detective to the case, or if the case is dissmised, you can delete it
+* Add a suspect or detective to the case, or if the case is closed, you can delete it
 * You can also delete missing persons or refugees from the list
 
 ##### Login as an admin:
